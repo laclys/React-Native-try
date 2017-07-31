@@ -11,6 +11,7 @@ import TriScreen from './TestPage'
 import YoyoScreen from './YoyoPage'
 import NaviScreen from './NaviPage'
 import MapScreen from './MapPage'
+import CacheScreen from './CachepPage'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -40,6 +41,10 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('Map')}
           title="Map"
         />
+        <Button
+          onPress={() => navigate('Cache')}
+          title="Cache"
+        />
       </View>
   }
 }
@@ -64,6 +69,7 @@ const SimpleApp = StackNavigator({
   Yoyo: { screen: YoyoScreen },
   Navi: { screen: NaviScreen },
   Map: { screen: MapScreen },
+  Cache: { screen: CacheScreen },
   
 },{
   mode: 'modal',
