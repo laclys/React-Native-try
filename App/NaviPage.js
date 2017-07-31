@@ -21,8 +21,8 @@ export default class NaviScreen extends React.Component {
       <View>
         <Text>123</Text>
         <Button
-          onPress={() => navigate('Yoyo')}
-          title="ProgressViewIOS"
+          onPress={() => navigate('Chat',{info:'navi222222'})}
+          title="Test Navigator"
         />
       </View>
     );

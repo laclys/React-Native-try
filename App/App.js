@@ -10,6 +10,7 @@ import { StackNavigator } from 'react-navigation';
 import TriScreen from './TestPage'
 import YoyoScreen from './YoyoPage'
 import NaviScreen from './NaviPage'
+import MapScreen from './MapPage'
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -35,6 +36,10 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('Navi')}
           title="Navigator2"
         />
+        <Button
+          onPress={() => navigate('Map')}
+          title="Map"
+        />
       </View>
   }
 }
@@ -58,6 +63,7 @@ const SimpleApp = StackNavigator({
   Test: { screen: TriScreen },
   Yoyo: { screen: YoyoScreen },
   Navi: { screen: NaviScreen },
+  Map: { screen: MapScreen },
   
 },{
   mode: 'modal',
