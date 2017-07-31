@@ -3,6 +3,7 @@ package com.testnavigator;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.github.xfumihiro.react_native_image_to_base64.ImageToBase64Package;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTCameraPackage(),
             new VectorIconsPackage(),
             new RNFetchBlobPackage(),
             new ImageToBase64Package()
