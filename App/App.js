@@ -12,6 +12,8 @@ import YoyoScreen from './YoyoPage'
 import NaviScreen from './NaviPage'
 import MapScreen from './MapPage'
 import CacheScreen from './CachepPage'
+import TextinputScreen from './TextinputPage'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -20,6 +22,7 @@ class HomeScreen extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return<View>
+        <Icon name="optin-monster" size={30} color="#6cf" />
         <Text>Hello, Chat App!</Text>
         <Button
           onPress={() => navigate('Chat',{info:'传值过去'})}
@@ -44,6 +47,10 @@ class HomeScreen extends React.Component {
         <Button
           onPress={() => navigate('Cache')}
           title="Cache"
+        />
+        <Button
+          onPress={() => navigate('Textinput')}
+          title="Textinput"
         />
       </View>
   }
@@ -70,6 +77,7 @@ const SimpleApp = StackNavigator({
   Navi: { screen: NaviScreen },
   Map: { screen: MapScreen },
   Cache: { screen: CacheScreen },
+  Textinput: { screen: TextinputScreen },
   
 },{
   mode: 'modal',
