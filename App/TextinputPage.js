@@ -13,7 +13,7 @@ import { Fumi } from 'react-native-textinput-effects';
 import { Kohana } from 'react-native-textinput-effects';
 import { Hoshi } from 'react-native-textinput-effects';
 
-export default class TextinputPageScreen extends React.Component {
+export default class TextinputScreen extends React.Component {
   constructor(props) {
     super(props);
   }

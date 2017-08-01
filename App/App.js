@@ -13,6 +13,7 @@ import NaviScreen from './NaviPage'
 import MapScreen from './MapPage'
 import CacheScreen from './CachepPage'
 import TextinputScreen from './TextinputPage'
+import FlatListScreen from './FlatListPage'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
@@ -52,6 +53,10 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('Textinput')}
           title="Textinput"
         />
+        <Button
+          onPress={() => navigate('FlatList')}
+          title="FlatList"
+        />
       </View>
   }
 }
@@ -78,6 +83,7 @@ const SimpleApp = StackNavigator({
   Map: { screen: MapScreen },
   Cache: { screen: CacheScreen },
   Textinput: { screen: TextinputScreen },
+  FlatList: { screen: FlatListScreen },
   
 },{
   mode: 'modal',
