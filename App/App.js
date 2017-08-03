@@ -14,6 +14,7 @@ import MapScreen from './MapPage'
 import CacheScreen from './CachepPage'
 import TextinputScreen from './TextinputPage'
 import FlatListScreen from './FlatListPage'
+import FetchScreen from './FetchPage'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
@@ -57,6 +58,10 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('FlatList')}
           title="FlatList"
         />
+        <Button
+          onPress={() => navigate('Fetch')}
+          title="Fetch Test"
+        />
       </View>
   }
 }
@@ -84,9 +89,8 @@ const SimpleApp = StackNavigator({
   Cache: { screen: CacheScreen },
   Textinput: { screen: TextinputScreen },
   FlatList: { screen: FlatListScreen },
+  Fetch: { screen: FetchScreen },
   
-},{
-  mode: 'modal',
 });
 
 AppRegistry.registerComponent('testNavigator', () => SimpleApp);
