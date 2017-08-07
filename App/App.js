@@ -15,6 +15,7 @@ import CacheScreen from './CachepPage'
 import TextinputScreen from './TextinputPage'
 import FlatListScreen from './FlatListPage'
 import FetchScreen from './FetchPage'
+import SpinkitScreen from './SpinkitPage'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
@@ -62,6 +63,10 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('Fetch')}
           title="Fetch Test"
         />
+        <Button
+          onPress={() => navigate('Spinkit')}
+          title="Spinkit Test"
+        />
       </View>
   }
 }
@@ -102,6 +107,7 @@ const SimpleApp = StackNavigator({
   Textinput: { screen: TextinputScreen },
   FlatList: { screen: FlatListScreen },
   Fetch: { screen: FetchScreen },
+  Spinkit: { screen: SpinkitScreen },
   
 });
 
