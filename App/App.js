@@ -66,8 +66,20 @@ class HomeScreen extends React.Component {
   }
 }
 class ChatScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Test Navigator',
+  static navigationOptions = ({ navigation }) => {
+    const {state, setParams} = navigation;
+    const isInfo = state.params.mode === 'info';
+    const {user} = state.params;
+    return {
+      title: isInfo ? `Contact Info` : `Chat`,
+      
+      headerRight: (
+        <Button
+          title={isInfo ? 'Done' : `info`}
+          onPress={() => setParams({ mode: isInfo ? 'none' : 'info'})}
+        />
+      ),
+    };
   };
   render() {
     return (

@@ -65,7 +65,7 @@ export default class FetchScreen extends React.Component {
       return (
           <View style={styles.container}>
               <TouchableHighlight style={styles.wrapper}
-                  onPress={this.sendAjax}>
+                  onPress={()=>this.sendAjax()}>
                   <View style={styles.button}>
                       <Text>点击发送Ajax请求</Text>
                   </View>
