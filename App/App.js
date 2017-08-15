@@ -4,7 +4,8 @@ import {
   Text,
   AppRegistry,
   View,
-  Button
+  Button,
+  Image
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import TriScreen from './TestPage'
@@ -18,6 +19,7 @@ import FetchScreen from './FetchPage'
 import SpinkitScreen from './SpinkitPage'
 import CarouselScreen from './CarouselPage'
 import LightboxScreen from './LightboxPage'
+import PreloadScreen from './PreloadPage'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
@@ -101,6 +103,10 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('Lightbox')}
           title="Lightbox"
         />
+        <Button
+          onPress={() => navigate('Preload')}
+          title="Preload"
+        />
       </View>
   }
 }
@@ -123,8 +129,15 @@ class ChatScreen extends React.Component {
   render() {
     return (
       <View>
-        <Text>Test Navigator</Text>
-        <Text>{this.props.navigation.state.params.info}</Text>
+         <Text>{this.props.navigation.state.params.imgUrl}</Text> 
+        {/* <Text>{this.props.navigation.state.params.info}</Text> */}
+        <Image
+          style={{
+            width:100,
+            height:100
+          }}
+          source ={{uri:'https://uniqueway.b0.upaiyun.com/uploads/2017/01/e3aae293-ca44-47ce-b5f3-c5ad97e9e361.jpg'}}
+        ></Image>
       </View>
     );
   }
@@ -144,6 +157,7 @@ const SimpleApp = StackNavigator({
   Spinkit: { screen: SpinkitScreen },
   Carousel: { screen: CarouselScreen },
   Lightbox: { screen: LightboxScreen },
+  Preload: { screen: PreloadScreen },
   
 });
 
