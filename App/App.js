@@ -16,12 +16,34 @@ import TextinputScreen from './TextinputPage'
 import FlatListScreen from './FlatListPage'
 import FetchScreen from './FetchPage'
 import SpinkitScreen from './SpinkitPage'
+import CarouselScreen from './CarouselPage'
+import LightboxScreen from './LightboxPage'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     headerTitle:'welcome'
   };
+  fetch123(){
+    let formData = new FormData()
+    formData.append('phone',13581687626)
+    formData.append('passport_code',1324)
+  return  fetch('https://api.uniqueway.in/api/app3/v1/users/sign_in.json', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'multipart/form-data'
+      },
+      body: formData
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+          console.log(responseJson)
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
   render() {
     const { navigate } = this.props.navigation;
     return<View>
@@ -67,6 +89,18 @@ class HomeScreen extends React.Component {
           onPress={() => navigate('Spinkit')}
           title="Spinkit Test"
         />
+        <Button
+          onPress={() => this.fetch123()}
+          title="fetch"
+        />
+        <Button
+          onPress={() => navigate('Carousel')}
+          title="Carousel"
+        />
+        <Button
+          onPress={() => navigate('Lightbox')}
+          title="Lightbox"
+        />
       </View>
   }
 }
@@ -108,6 +142,8 @@ const SimpleApp = StackNavigator({
   FlatList: { screen: FlatListScreen },
   Fetch: { screen: FetchScreen },
   Spinkit: { screen: SpinkitScreen },
+  Carousel: { screen: CarouselScreen },
+  Lightbox: { screen: LightboxScreen },
   
 });
 

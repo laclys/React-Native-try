@@ -37,11 +37,6 @@ export default class TriScreen extends React.Component {
       })
       // when response status code is 200
       .then((res) => {
-              // imagePath = res.path()
-              // console.log(imagePath)
-              // this.setState({
-              //   truePath:imagePath
-              // })
               return res.readFile('base64')
       })
       .then((base64Str)=>{
