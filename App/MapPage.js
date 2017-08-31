@@ -36,7 +36,11 @@ class DefaultMarkers extends React.Component {
       markers: [],
     };
   }
-
+componentDidMount() {
+   navigator.geolocation.getCurrentPosition(res => {
+     console.log(res)
+   })
+}
   onMapPress(e) {
     this.setState({
       markers: [

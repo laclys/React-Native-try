@@ -25,10 +25,6 @@ export default class PreloadScreen extends React.Component {
     title: 'preload',
   };
   componentDidMount () {
-    // Image.prefetch(url).then((res) =>{
-    //   console.log('prefetched~')
-    //   console.log(res)
-    // })
     this.LoadData()
   }
   LoadData() {
