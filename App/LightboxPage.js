@@ -24,6 +24,8 @@ var photoOptions = {
         path:'images'
     }
 }
+import AV from 'leancloud-storage';
+AV.initialize('RSfg53SzgxB5wRxWPQj2TbfT-gzGzoHsz', 'cmpgQ6M1v6JrBvRQQYceoJvK')
 export default class LightboxScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -46,11 +48,35 @@ export default class LightboxScreen extends React.Component {
         <Button
           title="click"
           onPress={()=>{
-            ImagePicker.showImagePicker(photoOptions,(response) =>{
-                console.log('response'+response);
+            var TestObject = AV.Object.extend('feedBackData');
+            var poiId = null
+            var TextContent = 'abcdefg'
+            var testObject = new TestObject()
+            testObject.set('TextContentData', TextContent);
+            testObject.set('poiIdData', poiId);
+              ImagePicker.showImagePicker(photoOptions,(response) =>{
+                console.log(response)
+                var file = new AV.File('react-native-demo-image.jpg', {
+                  blob: response
+                });
+                file.set('')
+                file.save()  
+                  .then(  
+                    (file) => {
+                      console.log('图片上传成功')
+                      console.log(file.url())
+                      testObject.set('imgUrl', file.url());
+                      testObject.save()
+                        .then(
+                          () => console.log('DATA上传成功'),
+                          (err) => console.log('DATA上传失败', err)
+                        )
+                    },  
+                    (err) => console.log('图片上传失败', err)  
+                  );
                 if (response.didCancel){
                     return
-                }
+                }  
             })
           }}
         ></Button>
